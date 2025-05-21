@@ -1,0 +1,154 @@
+$primary-color: #6a1b9a;
+$secondary-color: #f3e5f5;
+$dark-color: #1a1a1a;
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: $secondary-color;
+  color: $dark-color;
+}
+
+// Header with flex
+header {
+  background: $primary-color;
+  color: white;
+  padding: 1rem;
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .logo {
+      font-family: 'Oooh Baby', cursive;
+      font-size: 2rem;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Main expands page height
+main {
+  flex: 1;
+}
+
+// Search input and button side by side
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+
+  .search-form {
+    display: flex;
+    gap: 0.5rem;
+
+    input {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: 1px solid $primary-color;
+      font-size: 1rem;
+    }
+
+    button {
+      background: $primary-color;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+// Flex-based image grid
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
+
+  img {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Footer at bottom
+footer {
+  background: $primary-color;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+// Responsive Design for Mobile
+@media (max-width: 320px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .menu {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+
+    input, button {
+      width: 100%;
+    }
+  }
+
+  .flex-grid {
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%;
+      max-width: 90%;
+    }
+  }
+}
